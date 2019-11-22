@@ -1,33 +1,4 @@
-class SlackBotNotifyTemplate {
-    def token
-    def channel
-    def branch
-    def sonarDashboard 
-    def jenkinsLink
-    def githubLink
-
-    SlackBotNotifyTemplate(LinkedHashMap map) {
-        this.token = map.token
-        this.channel = map.channel
-        this.branch = map.branch
-        this.sonarDashboard = map.sonarDashboard
-        this.jenkinsLink = map.jenkinsLink
-        this.githubLink = map.githubLink
-    }
-
-    public String GetPRLink(targetBranch) {
-        return "${this.githubLink}/compare/${targetBranch}...${this.branch}?expand=1"
-    }
-
-    public String GetChannel() {
-        return this.channel
-    }
-
-    public String GetToken() {
-        return this.token
-    }
-}
-
+package template
 
 @groovy.transform.InheritConstructors
 class OnPushTemplateBuilder extends SlackBotNotifyTemplate {
@@ -130,34 +101,3 @@ class OnPushTemplateBuilder extends SlackBotNotifyTemplate {
         return blocks
     }
 } 
-
-@groovy.transform.InheritConstructors
-class OnPROpenTemplateBuilder extends SlackBotNotifyTemplate {
-    
-}
-
-@groovy.transform.InheritConstructors
-class OnPRReviewedTemplateBuilder extends SlackBotNotifyTemplate {
-    
-}
-
-@groovy.transform.InheritConstructors
-class OnPRMergedTemplateBuilder extends SlackBotNotifyTemplate {
-    
-}
-
-@groovy.transform.InheritConstructors
-class OnDeployTemplateBuilder extends SlackBotNotifyTemplate {
-    
-}
-
-
-
-
-
-
-
-
-
-
-
