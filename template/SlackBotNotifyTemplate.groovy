@@ -1,6 +1,6 @@
 package template
 
-class SlackBotNotifyTemplate {
+class SlackBotNotifyTemplate implements Serializable {
     def token
     def channel
     def branch

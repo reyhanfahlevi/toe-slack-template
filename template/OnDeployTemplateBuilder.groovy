@@ -5,7 +5,11 @@ class OnDeployTemplateBuilder extends SlackBotNotifyTemplate {
     public ArrayList BuildStarted() {
          def blocks = [
             [
-
+                "type": "section",
+                "text": [
+                    "type": "mrkdwn",
+                    "text": "Building *_${this.repoName}_* started"
+                ]
             ]
         ]
 
@@ -15,7 +19,11 @@ class OnDeployTemplateBuilder extends SlackBotNotifyTemplate {
     public ArrayList BuildFinished(LinkedHashMap param) {
          def blocks = [
             [
-
+                "type": "section",
+                "text": [
+                    "type": "mrkdwn",
+                    "text": "Building *_${this.repoName}_* finished"
+                ]
             ]
         ]
 
@@ -25,7 +33,11 @@ class OnDeployTemplateBuilder extends SlackBotNotifyTemplate {
     public ArrayList DeploymentStarted() {
          def blocks = [
             [
-
+                "type": "section",
+                "text": [
+                    "type": "mrkdwn",
+                    "text": "Deployment *_${this.repoName}_* started"
+                ]
             ]
         ]
 
@@ -35,7 +47,11 @@ class OnDeployTemplateBuilder extends SlackBotNotifyTemplate {
     public ArrayList DeploymentFinished(LinkedHashMap param) {
          def blocks = [
             [
-
+                "type": "section",
+                "text": [
+                    "type": "mrkdwn",
+                    "text": "Deployment *_${this.repoName}_* finished"
+                ]
             ]
         ]
 
