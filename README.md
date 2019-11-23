@@ -2,7 +2,7 @@
 
 ## OnPush Template
 
-OnPush template will create a `blocks` that needed by the jenkins slack plugins.
+OnPush template will create a `slackSend` param that needed by the jenkins slack plugins.
 
 ### How to Use
 
@@ -21,7 +21,7 @@ t.BeingScanned()
 
 t.ScanFinished(coverage: "60%", vuln: 0, bug: 0, codesmells: 0, targetBranch: "master"))
 
-t.PRClosed(prLink: "https://tokopedia.com",prNumber: 270)
+t.PRClosed(prLink: "https://tokopedia.com",prNum: 270)
 
 ```
 
@@ -29,7 +29,23 @@ Example sending to slack:
 
 ```groovy
 
-// must set bot user to true
-slackSend(botUser: true, channel: t.GetChannel(), blocks: t.BeingScanned(), tokenCredentialId: t.GetToken())
+slackSend(t.BeingScanned())
 
 ```
+
+### Available Parameters for all func including constructor
+
+| **var**  | **description** |
+|---|---|
+| token | credential id in jenkins  |
+| channel | targetted channel |
+| branch | current working branch |
+| targetBranch | targetted branch to merge / create PR |
+| prNum | PR number |
+| prLink | PR Url link (must valid URL) |
+| repoName | repository name / service name |
+| jenkinsLink | jenkins link of the service |
+| sonarDashboard | sonar dashboard link of the service |
+| githubLink | github link of the project (for creating PR) |
+| gitUser | github user name |
+| reviewAction | review action (**approved** \| **commented** \| **reviewed**) |

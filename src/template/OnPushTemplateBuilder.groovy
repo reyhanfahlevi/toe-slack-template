@@ -2,20 +2,20 @@ package template
 
 @groovy.transform.InheritConstructors
 class OnPushTemplateBuilder extends SlackBotNotifyTemplate {
-    public ArrayList BeingScanned() {
+    public LinkedHashMap BeingScanned() {
         def blocks = [
             [
                 "type": "section",
                 "text": [
                     "type": "mrkdwn",
-                    "text": "> Branch *_${this.branch}_* is being scanned"
+                    "text": "> Branch *_${this.GetBranch()}_* is being scanned"
                 ]
             ]
         ]
-        return blocks
+        return this.BuildSlackParam(blocks: blocks)
     }
 
-    public ArrayList ScanFinished(LinkedHashMap param) {
+    public LinkedHashMap ScanFinished(LinkedHashMap param) {
         def coverage = param.coverage
         def bug = param.bug
         def codesmells = param.codesmells
@@ -28,7 +28,7 @@ class OnPushTemplateBuilder extends SlackBotNotifyTemplate {
                 "type": "section",
                 "text": [
                     "type": "mrkdwn",
-                    "text": "> Branch *_${this.branch}_* already scanned :tada:"
+                    "text": "> Branch *_${this.GetBranch()}_* already scanned :tada:"
                 ],
                 "accessory": [
                     "type": "button",
@@ -75,16 +75,16 @@ class OnPushTemplateBuilder extends SlackBotNotifyTemplate {
                             "emoji": true,
                             "text": "Sonar Dashboard"
                         ],
-                        "url":"${this.sonarDashboard}"
+                        "url":"${this.GetSonarDashboard()}"
                     ]
                 ]
             ]
         ]
-        return blocks
+        return this.BuildSlackParam(blocks: blocks)
     }
 
-    public ArrayList PRClosed(LinkedHashMap param) {
-        def prNumber = param.prNumber
+    public LinkedHashMap PRClosed(LinkedHashMap param) {
+        def prNum = param.prNum
         def prLink = param.prLink
 
         def blocks = 
@@ -93,11 +93,11 @@ class OnPushTemplateBuilder extends SlackBotNotifyTemplate {
                 "type": "section",
                 "text": [
                     "type": "mrkdwn",
-                    "text": "> PR <${prLink}|#${prNumber}> is closed"
+                    "text": "> PR <${prLink}|#${prNum}> is closed"
                 ]
             ]
         ]
 
-        return blocks
+        return this.BuildSlackParam(blocks: blocks)
     }
 } 
