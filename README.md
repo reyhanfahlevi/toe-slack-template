@@ -33,3 +33,20 @@ Example sending to slack:
 slackSend(botUser: true, channel: t.GetChannel(), blocks: t.BeingScanned(), tokenCredentialId: t.GetToken())
 
 ```
+
+### Available Parameters for all func including constructor
+
+| **var**  | **description** |
+|---|---|
+| token | credential id in jenkins  |
+| channel | targetted channel |
+| branch | current working branch |
+| targetBranch | targetted branch to merge / create PR |
+| prNum | PR number |
+| prLink | PR Url link (must valid URL) |
+| repoName | repository name / service name |
+| jenkinsLink | jenkins link of the service |
+| sonarDashboard | sonar dashboard link of the service |
+| githubLink | github link of the project (for creating PR) |
+| gitUser | github user name |
+| reviewAction | review action (**approved** \| **commented** \| **reviewed**) |

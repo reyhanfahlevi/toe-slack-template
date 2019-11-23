@@ -14,7 +14,7 @@ class OnPRReviewedTemplateBuilder extends SlackBotNotifyTemplate {
                 "type": "section",
                 "text": [
                     "type": "mrkdwn",
-                    "text": "> PR *_<${param.prLink}|${param.prNumber}>_* is ${param.action} by ${param.gitUser} ${additionalField}"
+                    "text": "> PR *_<${param.prLink}|${param.prNumber}>_* is ${param.reviewAction} by ${param.gitUser} ${additionalField}"
                 ]
             ]
         ]
