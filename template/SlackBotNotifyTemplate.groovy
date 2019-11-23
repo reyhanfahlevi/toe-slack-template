@@ -1,6 +1,6 @@
 package template
 
-public class SlackBotNotifyTemplate {
+class SlackBotNotifyTemplate {
     def token
     def channel
     def branch

@@ -1,7 +1,7 @@
 package template
 
 @groovy.transform.InheritConstructors
-public class OnDeployTemplateBuilder extends SlackBotNotifyTemplate {
+class OnDeployTemplateBuilder extends SlackBotNotifyTemplate {
     public ArrayList BuildStarted() {
          def blocks = [
             [

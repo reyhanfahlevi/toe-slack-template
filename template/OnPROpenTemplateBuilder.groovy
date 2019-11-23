@@ -1,7 +1,7 @@
 package template
 
 @groovy.transform.InheritConstructors
-public class OnPROpenTemplateBuilder extends SlackBotNotifyTemplate {
+class OnPROpenTemplateBuilder extends SlackBotNotifyTemplate {
     public ArrayList PreCheckPR(LinkedHashMap param) {
         def blocks =
         [
